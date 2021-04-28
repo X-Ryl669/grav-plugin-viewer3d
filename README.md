@@ -58,7 +58,7 @@ YourFile.stl
 ```
 ````
 
-To your page and a 3D plugin will pop up.
+To your page and a 3D plugin will pop up showing YourFile.stl (must be in the same folder as your page).
 
 ## Credits
 
