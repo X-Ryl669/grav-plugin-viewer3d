@@ -3,6 +3,7 @@ namespace Grav\Plugin;
 
 use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
+use RocketTheme\Toolbox\Event\Event;
 
 /**
  * Class 3DViewerPlugin
@@ -37,7 +38,7 @@ class Viewer3dPlugin extends Plugin
     */
     public function autoload(): ClassLoader
     {
-//        return require __DIR__ . '/vendor/autoload.php';
+        return require __DIR__ . '/vendor/autoload.php';
     }
 
     /**
@@ -61,17 +62,17 @@ class Viewer3dPlugin extends Plugin
     {
         $markdown = $event['markdown'];
         $config = $this->config;
-        $ourConfig = $config->get('plugins.3-d-viewer');
+        $ourConfig = $config->get('plugins.viewer3-d');
+        $slug = $event['page']->slug();
+        $this->used = false;
 
         // This feature depends on the page being provided in onMarkdownInitialized event.
         // See PR https://github.com/getgrav/grav/pull/2418
         if (isset($event['page'])) {
             $config = $this->mergeConfig($event['page']);
         }
-
-        $markdown->addBlockType('`', '3DViewer', false, false);
-
-        $markdown->block3DViewer = function($Line) {
+        $markdown->addBlockType('`', 'Viewer3D', true, false, 0);
+        $markdown->blockViewer3D = function($Line) {
             if (preg_match('/^```3dv$/', $Line['text'], $matches))
             {
                 $Block = [ 'element' => ['name' => 'div', 'attribute' => [ 'class' => 'online_3d_viewer' ], 'text' => '' ] ];
@@ -81,31 +82,34 @@ class Viewer3dPlugin extends Plugin
             }
 	    return;
         };
-        $markdown->block3DViewerContinue = function($Line, array $Block) {
+        $markdown->blockViewer3DContinue = function($Line, array $Block) use ($slug) {
             if ( isset( $Block['complete'] ) )
             {
                 return;
             }
-            
+
             if (preg_match('/^```$/', $Line['text'], $matches))
             {
-                $Block['markup'] = "<div class='online_3d_viewer' model='".$Block['src']."' camera='-1.5,-3.0,2.0,0,0,0,0,0,1' edge='#000000' color='#A0B0A0'><div class='toolbar'></div><div class='details'></div></div>";
+                $Block['markup'] = "<div class='online_3d_viewer' model='".$slug.'/'.$Block['src']."' camera='-1.5,-3.0,2.0,0,0,0,0,0,1' edge='#000000' color='#A0B0A0'><div class='toolbar'></div><div class='details'></div></div>";
                 $Block['complete'] = true;
+                $this->used = true;
                 return $Block;
             }
 
             $Block['src'] = $Line['text'];
             return $Block;
         };
-
     }
 
     public function onTwigSiteVariables()
     {
-        $this->grav['assets']->add('plugin://3-d-viewer/assets/css/3dviewer.css');
-        $this->grav['assets']->add('plugin://3-d-viewer/assets/js/three.min.js');
-        $this->grav['assets']->add('plugin://3-d-viewer/assets/js/o3dv.min.js');
-        $this->grav['assets']->add('plugin://3-d-viewer/assets/js/3dviewer.js');
+        if ($this->used)
+        {
+            $this->grav['assets']->add('plugin://viewer3-d/assets/css/3dviewer.css');
+            $this->grav['assets']->add('plugin://viewer3-d/assets/js/three.min.js');
+            $this->grav['assets']->add('plugin://viewer3-d/assets/js/o3dv.min.js');
+            $this->grav['assets']->add('plugin://viewer3-d/assets/js/3dviewer.js');
+        }
     }
 
 }
