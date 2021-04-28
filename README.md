@@ -50,7 +50,15 @@ Note that if you use the Admin Plugin, a file with your configuration named 3-d-
 
 ## Usage
 
-**Describe how to use the plugin.**
+Simply add:
+
+````
+```3dv
+YourFile.stl
+```
+````
+
+To your page and a 3D plugin will pop up.
 
 ## Credits
 
