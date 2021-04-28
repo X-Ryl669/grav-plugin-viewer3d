@@ -1,0 +1,29 @@
+{
+  "name": "x-ryl669/viewer3-d",
+  "type": "grav-plugin",
+  "description": "Add a interactive viewer for your 3D objects to your site",
+  "keywords": ["plugin"],
+  "homepage": "https://github.com/X-Ryl669/grav-plugin-viewer3-d",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "X-Ryl669",
+      "email": "boite.pour.spam@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grav\\Plugin\\Viewer3D\\": "classes/"
+    },
+    "classmap":  ["viewer3-d.php"]
+  },
+  "config": {
+    "platform": {
+      "php": "7.1.3"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+en:
+  PLUGIN_3D_VIEWER:
+    SHOW_EDGES: Show edges
+    SHOW_EDGES_HELP: Overlay computed edges on your model (useful for CAD data)

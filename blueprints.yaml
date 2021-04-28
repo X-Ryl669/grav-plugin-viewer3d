@@ -1,0 +1,44 @@
+name: Viewer3d
+slug: viewer3-d
+type: plugin
+version: 0.1.0
+description: A 3D object viewer plugin for GravCMS
+icon: plug
+author:
+  name: X-Ryl669
+  email: boite.pour.spam@gmail.com
+homepage: https://github.com/X-Ryl669/grav-plugin-3-d-viewer
+demo: https://blog.cyril.by/en/documentation/3d%20models/filament-detector
+keywords: grav, plugin, etc
+bugs: https://github.com/X-Ryl669/grav-plugin-3-d-viewer/issues
+docs: https://github.com/X-Ryl669/grav-plugin-3-d-viewer/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    show_edges:
+      type: toggle
+      label: PLUGIN_3D_VIEWER.SHOW_EDGES
+      help: PLUGIN_3D_VIEWER.SHOW_EDGES_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+

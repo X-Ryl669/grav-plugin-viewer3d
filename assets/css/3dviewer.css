@@ -1,0 +1,56 @@
+#tb li img {
+  width: 32px;
+  height: 32px;
+  padding: 2px;
+}
+#tb li {
+  display: inline-block;
+  padding: 5px;
+  margin: 0;
+  border-right: 1px solid #888;
+  width: 42px;  
+}
+#tb li:last-child {
+  border: none;
+}
+#tb li:first-child {
+  border-radius: 0 0 0 5px;
+}
+#tb li:hover {
+  background: #F2F2F2;
+}
+#tb li.selected {
+  background: #DDD;
+}
+#tb {
+  list-style-type: none;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  background: #EEE;
+  margin: 0;
+  border-radius: 0 0 0 5px;
+}
+#details span {
+  display: inline-block;
+  margin: 0 1em;
+}
+#details span:first-child {
+  font-weight: bold;
+  width: 8em;
+}
+#details {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  margin: 2px;
+  background: #EEE;
+  background: rgba(212,212,212,0.5);
+  font-size: 0.7rem;
+}
+#details div {
+  height: 1.3rem;
+  line-height: 1.3rem;
+}
+.online_3d_viewer { position: relative; }
