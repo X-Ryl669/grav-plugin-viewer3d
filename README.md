@@ -18,17 +18,17 @@ To install the plugin via the [GPM](http://learn.getgrav.org/advanced/grav-gpm),
 
     bin/gpm install viewer3-d
 
-This will install the 3d Viewer plugin into your `/user/plugins`-directory within Grav. Its files can be found under `/your/site/grav/user/plugins/3-d-viewer`.
+This will install the 3d Viewer plugin into your `/user/plugins`-directory within Grav. Its files can be found under `/your/site/grav/user/plugins/viewer3-d`.
 
 ### Manual Installation
 
-To install the plugin manually, download the zip-version of this repository and unzip it under `/your/site/grav/user/plugins`. Then rename the folder to `3-d-viewer`. You can find these files on [GitHub](https://github.com/x-ryl669/grav-plugin-3-d-viewer) or via [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
+To install the plugin manually, download the zip-version of this repository and unzip it under `/your/site/grav/user/plugins`. Then rename the folder to `viewer3-d`. You can find these files on [GitHub](https://github.com/x-ryl669/grav-plugin-viewer3-d) or via [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
 
 You should now have all the plugin files under
 
     /your/site/grav/user/plugins/viewer3-d
 	
-> NOTE: This plugin is a modular component for Grav which may require other plugins to operate, please see its [blueprints.yaml-file on GitHub](https://github.com/x-ryl669/grav-plugin-3-d-viewer/blob/master/blueprints.yaml).
+> NOTE: This plugin is a modular component for Grav which may require other plugins to operate, please see its [blueprints.yaml-file on GitHub](https://github.com/x-ryl669/grav-plugin-viewer3-d/blob/master/blueprints.yaml).
 
 ### Admin Plugin
 
@@ -36,7 +36,7 @@ If you use the Admin Plugin, you can install the plugin directly by browsing the
 
 ## Configuration
 
-Before configuring this plugin, you should copy the `user/plugins/3-d-viewer/viewer3-d.yaml` to `user/config/plugins/viewer3-d.yaml` and only edit that copy.
+Before configuring this plugin, you should copy the `user/plugins/viewer3-d/viewer3-d.yaml` to `user/config/plugins/viewer3-d.yaml` and only edit that copy.
 
 Here is the default configuration and an explanation of available options:
 
