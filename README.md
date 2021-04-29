@@ -66,7 +66,7 @@ YourFile.stl
 ```
 ````
 
-To your page and a 3D plugin will appear up showing YourFile.stl (must be in the same folder as your page).
+To your page and a 3D plugin will appear, showing **YourFile.stl** (must be in the same folder as your page).
 
 ## Credits
 
