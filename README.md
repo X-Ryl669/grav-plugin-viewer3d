@@ -2,6 +2,14 @@
 
 Display an interactive 3D model in your Grav CMS blog page from where you can download, measure and observe your models. 
 
+It supports 3D model file in the following format:
+- obj (with mtl and texture)
+- 3ds (with texture)
+- stl (text and binary)
+- ply (text and binary)
+- gltf (text and binary)
+- off (text only)
+
 The **3d Viewer** Plugin is an extension for [Grav CMS](http://github.com/getgrav/grav). A 3D object viewer plugin for GravCMS
 
 ## Demo page
