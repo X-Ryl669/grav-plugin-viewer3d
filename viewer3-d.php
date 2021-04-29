@@ -103,7 +103,7 @@ class Viewer3dPlugin extends Plugin
 
     public function onTwigSiteVariables()
     {
-        if ($this->used)
+        if (isset($this->used) && $this->used)
         {
             $this->grav['assets']->add('plugin://viewer3-d/assets/css/3dviewer.css');
             $this->grav['assets']->add('plugin://viewer3-d/assets/js/three.min.js');
