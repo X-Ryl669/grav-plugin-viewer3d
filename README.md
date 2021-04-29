@@ -16,7 +16,7 @@ Installing the 3d Viewer plugin can be done in one of three ways: The GPM (Grav 
 
 To install the plugin via the [GPM](http://learn.getgrav.org/advanced/grav-gpm), through your system's terminal (also called the command line), navigate to the root of your Grav-installation, and enter:
 
-    bin/gpm install 3-d-viewer
+    bin/gpm install viewer3-d
 
 This will install the 3d Viewer plugin into your `/user/plugins`-directory within Grav. Its files can be found under `/your/site/grav/user/plugins/3-d-viewer`.
 
@@ -26,7 +26,7 @@ To install the plugin manually, download the zip-version of this repository and 
 
 You should now have all the plugin files under
 
-    /your/site/grav/user/plugins/3-d-viewer
+    /your/site/grav/user/plugins/viewer3-d
 	
 > NOTE: This plugin is a modular component for Grav which may require other plugins to operate, please see its [blueprints.yaml-file on GitHub](https://github.com/x-ryl669/grav-plugin-3-d-viewer/blob/master/blueprints.yaml).
 
@@ -36,7 +36,7 @@ If you use the Admin Plugin, you can install the plugin directly by browsing the
 
 ## Configuration
 
-Before configuring this plugin, you should copy the `user/plugins/3-d-viewer/3-d-viewer.yaml` to `user/config/plugins/3-d-viewer.yaml` and only edit that copy.
+Before configuring this plugin, you should copy the `user/plugins/3-d-viewer/viewer3-d.yaml` to `user/config/plugins/viewer3-d.yaml` and only edit that copy.
 
 Here is the default configuration and an explanation of available options:
 
@@ -44,7 +44,7 @@ Here is the default configuration and an explanation of available options:
 enabled: true
 ```
 
-Note that if you use the Admin Plugin, a file with your configuration named 3-d-viewer.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
+Note that if you use the Admin Plugin, a file with your configuration named viewer3-d.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
 
 
@@ -58,7 +58,7 @@ YourFile.stl
 ```
 ````
 
-To your page and a 3D plugin will pop up showing YourFile.stl (must be in the same folder as your page).
+To your page and a 3D plugin will appear up showing YourFile.stl (must be in the same folder as your page).
 
 ## Credits
 
