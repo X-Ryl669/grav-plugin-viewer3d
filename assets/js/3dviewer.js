@@ -20,7 +20,7 @@ let infoPanel = {
 let faceSelector = null;
 
 window.addEventListener ('load', function() {
-  let url = '/user/images/';
+  let url = '/user/plugins/viewer3-d/assets/img/';
   let parent = $('.online_3d_viewer');
   parent.children('.toolbar').append(`<ul id='tb'><li><a href='${parent.attr('model')}'><img src='${url}export.svg' id='export'></a></li><li><img src='${url}measure.svg' id='measure'></li></ul>`);
   parent.children('.details').append(`<div id='details'></div>`);
