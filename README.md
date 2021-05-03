@@ -54,6 +54,17 @@ enabled: true
 
 Note that if you use the Admin Plugin, a file with your configuration named viewer3-d.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
+Also, if you intend to use 3d files on your website, you must ensure that the file type is supported by Grav. Go in the *Admin* / *Configuration* page and select the *Media* tab.
+You'll likely need to create an handler for your intended 3d model format.
+
+For example, for STL file, you'll need to click: `+ Add Item` button, and add a filetype like this:
+```
+File extension: stl
+Type: file
+Thumb: media/thumb.png
+Mime type: model/stl 
+```
+
 
 
 ## Usage
