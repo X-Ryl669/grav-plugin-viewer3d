@@ -6,19 +6,19 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'd5dbb134544d9cd19e28ce51b0e31655bf26d315',
-    'name' => 'x-ryl669/viewer3-d',
+    'reference' => '7cf3685c59864943d86ca9b06c3a4f82031ae025',
+    'name' => 'x-ryl669/viewer3d',
   ),
   'versions' => 
   array (
-    'x-ryl669/viewer3-d' => 
+    'x-ryl669/viewer3d' => 
     array (
       'pretty_version' => 'dev-master',
       'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => 'd5dbb134544d9cd19e28ce51b0e31655bf26d315',
+      'reference' => '7cf3685c59864943d86ca9b06c3a4f82031ae025',
     ),
   ),
 );

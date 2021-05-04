@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Grav\\Plugin\\Viewer3dPlugin' => $baseDir . '/viewer3-d.php',
+    'Grav\\Plugin\\Viewer3dPlugin' => $baseDir . '/viewer3d.php',
 );

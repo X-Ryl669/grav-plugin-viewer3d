@@ -22,7 +22,7 @@ class ComposerStaticInitd4d62a5d25387c3d5c5d16bac9c2dcff
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Grav\\Plugin\\Viewer3dPlugin' => __DIR__ . '/../..' . '/viewer3-d.php',
+        'Grav\\Plugin\\Viewer3dPlugin' => __DIR__ . '/../..' . '/viewer3d.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
