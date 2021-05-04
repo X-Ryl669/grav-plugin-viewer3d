@@ -73,7 +73,6 @@ Simply add:
 
 ````
 [3dv]YourFile.stl[/3dv]
-```
 ````
 
 To your page and a 3D plugin will appear, showing **YourFile.stl** (must be in the same folder as your page).
