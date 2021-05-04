@@ -24,19 +24,19 @@ Installing the 3d Viewer plugin can be done in one of three ways: The GPM (Grav 
 
 To install the plugin via the [GPM](http://learn.getgrav.org/advanced/grav-gpm), through your system's terminal (also called the command line), navigate to the root of your Grav-installation, and enter:
 
-    bin/gpm install viewer3-d
+    bin/gpm install viewer3d
 
-This will install the 3d Viewer plugin into your `/user/plugins`-directory within Grav. Its files can be found under `/your/site/grav/user/plugins/viewer3-d`.
+This will install the 3d Viewer plugin into your `/user/plugins`-directory within Grav. Its files can be found under `/your/site/grav/user/plugins/viewer3d`.
 
 ### Manual Installation
 
-To install the plugin manually, download the zip-version of this repository and unzip it under `/your/site/grav/user/plugins`. Then rename the folder to `viewer3-d`. You can find these files on [GitHub](https://github.com/x-ryl669/grav-plugin-viewer3-d) or via [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
+To install the plugin manually, download the zip-version of this repository and unzip it under `/your/site/grav/user/plugins`. Then rename the folder to `viewer3d`. You can find these files on [GitHub](https://github.com/x-ryl669/grav-plugin-viewer3d) or via [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
 
 You should now have all the plugin files under
 
-    /your/site/grav/user/plugins/viewer3-d
+    /your/site/grav/user/plugins/viewer3d
 	
-> NOTE: This plugin is a modular component for Grav which may require other plugins to operate, please see its [blueprints.yaml-file on GitHub](https://github.com/x-ryl669/grav-plugin-viewer3-d/blob/master/blueprints.yaml).
+> NOTE: This plugin is a modular component for Grav which may require other plugins to operate, please see its [blueprints.yaml-file on GitHub](https://github.com/x-ryl669/grav-plugin-viewer3d/blob/master/blueprints.yaml).
 
 ### Admin Plugin
 
@@ -44,7 +44,7 @@ If you use the Admin Plugin, you can install the plugin directly by browsing the
 
 ## Configuration
 
-Before configuring this plugin, you should copy the `user/plugins/viewer3-d/viewer3-d.yaml` to `user/config/plugins/viewer3-d.yaml` and only edit that copy.
+Before configuring this plugin, you should copy the `user/plugins/viewer3d/viewer3d.yaml` to `user/config/plugins/viewer3d.yaml` and only edit that copy.
 
 Here is the default configuration and an explanation of available options:
 
@@ -52,7 +52,7 @@ Here is the default configuration and an explanation of available options:
 enabled: true
 ```
 
-Note that if you use the Admin Plugin, a file with your configuration named viewer3-d.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
+Note that if you use the Admin Plugin, a file with your configuration named viewer3d.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
 Also, if you intend to use 3d files on your website, you must ensure that the file type is supported by Grav. Go in the *Admin* / *Configuration* page and select the *Media* tab.
 You'll likely need to create an handler for your intended 3d model format.
@@ -72,8 +72,7 @@ Mime type: model/stl
 Simply add:
 
 ````
-```3dv
-YourFile.stl
+[3dv]YourFile.stl[/3dv]
 ```
 ````
 
