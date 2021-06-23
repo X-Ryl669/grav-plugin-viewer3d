@@ -1,8 +1,10 @@
-
-function setDetails(viewer, measure) {
+let volume = 0;
+function setDetails(viewer, importResult, measure) {
   let box = viewer.GetBoundingBox(function(mesh){return "originalMeshIndex" in mesh}).getSize();
 
+  if (importResult) volume = OV.CalculateVolume (importResult.model);
   $('#details').empty().append(`<div><span>Dimensions</span><span>${box.x.toFixed(1)} x ${box.y.toFixed(1)} x ${box.z.toFixed(1)}</span></div>`);
+  if (volume !== 0) $('#details').append(`<div><span>Volume</span><span>${volume.toFixed(1)}</span></div>`);
   if (measure && measure.distance !== null) {
     $('#details').append(`<div><span>Distance</span><span>${measure.hypDistance.toFixed(2)}</span></div>`);
     $('#details').append(`<div><span>Angle</span><span>${(measure.angle * 180 / Math.PI).toFixed(2)}°</span></div>`);
@@ -15,7 +17,7 @@ let measureButton = {
   IsSelected: function() { return $('#measure').parent().hasClass('selected') }
 };
 let infoPanel = {
-  UpdateMeasure: function(distance, angle, hypDistance) { setDetails(viewerElements[0].viewer, {distance: distance, angle: angle, hypDistance: hypDistance}); }
+  UpdateMeasure: function(distance, angle, hypDistance) { setDetails(viewerElements[0].viewer, undefined, {distance: distance, angle: angle, hypDistance: hypDistance}); }
 };
 let faceSelector = null;
 
