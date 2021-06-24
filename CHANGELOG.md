@@ -1,3 +1,9 @@
+# v0.9.6
+##  06/24/2021
+
+1. [](#new)
+    * Compute volume, filament length and weight
+
 # v0.9.5
 ##  06/23/2021
 
