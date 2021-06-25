@@ -1,3 +1,9 @@
+# v0.9.7
+##  06/25/2021
+
+1. [](#new)
+    * Reworked the panel information to it's collapsible and dynamic
+
 # v0.9.6
 ##  06/24/2021
 
