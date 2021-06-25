@@ -7,6 +7,7 @@ let filamentSizes = [1.75, 3]; //mm
 let densities = { PLA: 1.3, PETG: 1.38, ABS: 1, TPU: 1.21 }; // g/cm3
 let plasticType = 'PLA';
 let density = 1.3; // g/cm3
+let fieldCache = {};
 
 function slugify(text, separator = "-") {
     return text
@@ -30,27 +31,31 @@ function addCombo(section, name, choices, values, def, cb) {
   select.on('change', cb);
 }
 
-function addSection(name, opened) {
+function addSection(name) {
+  let opened = fieldCache[name] && fieldCache[name] === true;
   $('#details').append(`<li id='${makeId(name)}'><details ${opened?'open': ''}><summary>${name}</summary></details></li>`);
+  $('#'+makeId(name)+' details').on('toggle', function() { fieldCache[name] = $(this).prop('open'); });
 }
 
 function addField(section, name, value) {
-  $('#'+makeId(section)+' details').append(`<div><span>${name}</span><span>${value}</span></div>`);
+  $('#'+makeId(section)+' details').append(`<div><span>${name}</span><span ${fieldCache[name] && fieldCache[name] != value ? "class='transition'" : ""}>${value}</span></div>`);
+  fieldCache[name] = value;
 }
 
-function buildInfo(opened, setting = false) {
-  $('#details').empty();
+function buildInfo(setting = false) {
+  $('#details li:not(.mmenu)').remove();
   addSection('Settings', setting);
-  addCombo('Settings', 'Length unit', units.len, Array.from(Array(units.len.length).keys()), unit, function(e) { unit = $(e.target).val(); buildInfo(opened, true); });
-  addCombo('Settings', 'Plastic type', Object.keys(densities), Object.keys(densities), plasticType, function(e) { plasticType = $(e.target).val(); density = densities[$(e.target).val()]; buildInfo(opened, true); });
-  addCombo('Settings', 'Filament diameter', filamentSizes, filamentSizes, filSize, function(e) { filSize = $(e.target).val(); buildInfo(opened, true); });
-  addSection('Model information', opened);
+  addCombo('Settings', 'Length unit', units.len, Array.from(Array(units.len.length).keys()), unit, function(e) { unit = $(e.target).val(); buildInfo(true); });
+  addCombo('Settings', 'Plastic type', Object.keys(densities), Object.keys(densities), plasticType, function(e) { plasticType = $(e.target).val(); density = densities[$(e.target).val()]; buildInfo(true); });
+  addCombo('Settings', 'Filament diameter', filamentSizes, filamentSizes, filSize, function(e) { filSize = $(e.target).val(); buildInfo(true); });
+  addSection('Model information');
   addField('Model information', 'Dimensions', `${makeDim(boundingBox.x, 'l')} x ${makeDim(boundingBox.y, 'l')} x ${makeDim(boundingBox.z, 'l')}`);
   if (volume !== 0) {
     addField('Model information', 'Volume', makeDim(volume, 'v'));
     addField('Model information', 'Weight', makeDim(computeWeight(), 'g'));
     addField('Model information', 'Filament length', makeDim(computeFilLen(), 'l', 3));
   }
+  setTimeout(function(){$('#details .transition').removeClass('transition').addClass('fade');}, 10);
   
 }
 
@@ -108,11 +113,13 @@ function setDetails(viewer, importResult, measure) {
   let hasMeasure = (measure && measure.distance !== null);
   buildInfo(!hasMeasure);
   if (hasMeasure) {
-    addSection('Measure', true);
+    fieldCache['Measure'] = true;
+    addSection('Measure');
     addField('Measure', 'Point to point distance', makeDim(measure.hypDistance, 'l'));
     addField('Measure', 'Angle', makeDim(measure.angle, '°'));
     addField('Measure', 'Plane to plane distance', makeDim(measure.distance, 'l'));
   }
+  $('#details li.mmenu').addClass('opened');
 }
 
 let measureButton = {
@@ -136,6 +143,8 @@ window.addEventListener ('load', function() {
       faceSelector.Dispose(); faceSelector = null;
     }
   });
+  fieldCache['Model information'] = true;
+  $('#details li.mmenu').on('click', function() { $(this).toggleClass('opened'); });
 });
 let viewerElements = OV.Init3DViewerElements(setDetails);
 
