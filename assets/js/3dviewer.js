@@ -122,25 +122,54 @@ function setDetails(viewer, importResult, measure) {
   $('#details li.mmenu').addClass('opened');
 }
 
-let measureButton = {
-  Select: function(selected) { $('#measure').parent().toggleClass('selected', selected); },
-  IsSelected: function() { return $('#measure').parent().hasClass('selected') }
-};
+function Button(id) {
+  this.obj = $('#'+id);
+  this.Select = function(selected) { this.obj.parent().toggleClass('selected', selected); };
+  this.IsSelected = function() { return this.obj.parent().hasClass('selected'); };
+}
 let infoPanel = {
   UpdateMeasure: function(distance, angle, hypDistance) { setDetails(viewerElements[0].viewer, undefined, {distance: distance, angle: angle, hypDistance: hypDistance}); }
 };
 let faceSelector = null;
+let cutPlane = null;
+function clearButtons() {
+  if (cutPlane !== null) cutPlane.Dispose();
+  if (faceSelector !== null) faceSelector.Dispose();
+  cutPlane = faceSelector = null;
+}
+
+function Slider(min, max, cb) {
+  this.onInput = cb;
+  this.min = min;
+  this.max = max;
+  this.element = null;
+  this.CreateDomElement = function(parent) {
+    this.element = $(`<input type='range' min='${this.min}' max='${this.max}' id='depthSlider'>`).appendTo(parent);
+    let onInput = this.onInput;
+    this.element.on('input', function(e) { if (onInput !== null) onInput(Number.parseFloat(e.target.value)); });
+  }
+  this.Dispose = function() { if (this.element !== null) this.element.remove(); }
+}
 
 window.addEventListener ('load', function() {
   let parent = $('.online_3d_viewer');
   let url = parent.attr('data-base');
-  parent.children('.toolbar').append(`<ul id='tb'><li><a href='${parent.attr('model')}'><img src='${url}export.svg' id='export'></a></li><li><img src='${url}measure.svg' id='measure'></li></ul>`);
+  parent.children('.toolbar').append(`<ul id='tb'><li><a href='${parent.attr('model')}'><img src='${url}export.svg' id='export'></a><span class='tt'>Download</span></li><li><img src='${url}measure.svg' id='measure'><span class='tt'>Measure</span></li><li><img src='${url}cut.svg' id='cut'><span class='tt'>Section cut</span></li></ul>`);
+  let measureButton = new Button('measure');
+  let cutButton = new Button('cut');
+
   $('#measure').on('click', function(e) {
     measureButton.Select(!measureButton.IsSelected());
+    clearButtons();
     if (measureButton.IsSelected()) {
       faceSelector = new OV.FaceSelector(viewerElements[0].viewer, measureButton, infoPanel);
-    } else {
-      faceSelector.Dispose(); faceSelector = null;
+    }
+  });
+  $('#cut').on('click', function(e) {
+    cutButton.Select(!cutButton.IsSelected());
+    clearButtons();
+    if (cutButton.IsSelected()) {
+      cutPlane = new OV.CutPlane(viewerElements[0].viewer, parent, Slider);
     }
   });
   fieldCache['Model information'] = true;

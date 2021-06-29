@@ -71,7 +71,7 @@
 #details li {
   font-size: 110%;
   font-weight: bold;
-  padding: 0 5px;
+  padding: 0 20px 0 5px;
 }
 #details div {
   height: 1.3rem;
@@ -92,6 +92,7 @@
   line-height: 1.5rem;
   left: -5px;
   transition: all ease 0.3s;
+  padding: 0 5px;
 }
 #details li.mmenu.opened 
 {
@@ -116,6 +117,60 @@
 }
 #details li.mmenu.opened ~ li {
   display: block;
+}
+#tb .tt {
+  visibility: hidden;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: -2em;
+  left: -50%;
+  width: max-content;
+}
+#tb li { position: relative; }
+#tb li:hover .tt { visibility: visible; }
+#depthSlider {
+  position: absolute;
+  bottom: 48px;
+  right: -43.75%;
+  transform: rotate(270deg);
+  height: 24px;
+  width: 43.75%;
+  transform-origin: bottom left;
+  -webkit-appearance: none;
+  background: #e8e8e8;
+  outline: none;
+  transition: opacity .2s;
+  border-radius: 12.5px;
+  margin-right: 10px;
+  box-shadow: -4px 4px 8px #CCC inset;
+}
+#depthSlider:hover {
+  opacity: 1;
+}
+#depthSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #B1C5D4;
+  background: radial-gradient(circle, #B1C5D4 0%, #B1C5D4 50%, #71879a 51%,#FFF 65%, #71879a 100%);
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: -3px 1px 2px #CCC;
+}
+#depthSlider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #B1C5D4;
+  background: radial-gradient(circle, #B1C5D4 0%, #B1C5D4 50%, #71879a 51%,#FFF 65%, #71879a 100%);
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: -3px 1px 2px #CCC;
 }
 
 
