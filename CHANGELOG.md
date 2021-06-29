@@ -1,3 +1,9 @@
+# v0.9.8
+##  06/29/2021
+
+1. [](#new)
+    * Add support for section view (cut view) in viewer
+
 # v0.9.7
 ##  06/25/2021
 
