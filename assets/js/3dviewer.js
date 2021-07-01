@@ -105,6 +105,7 @@ function computeFilLen() {
 }
 
 function setDetails(viewer, importResult, measure) {
+  if ($('#details').length === 0) return;
   if (boundingBox.x === 0) {
     let box = viewer.GetBoundingBox(function(mesh){return "originalMeshIndex" in mesh}).getSize();
     boundingBox.x = box.x; boundingBox.y = box.y; boundingBox.z = box.z;
@@ -138,8 +139,8 @@ function clearButtons(button) {
   if (cutPlane !== null) cutPlane.Dispose();
   if (faceSelector !== null) faceSelector.Dispose();
   cutPlane = faceSelector = null;
-  if (button != measureButton) measureButton.Select(false);
-  if (button != cutButton) cutButton.Select(false);
+  if (button != measureButton && measureButton) measureButton.Select(false);
+  if (button != cutButton && cutButton) cutButton.Select(false);
 }
 
 function Slider(min, max, cb) {
@@ -157,27 +158,30 @@ function Slider(min, max, cb) {
 
 window.addEventListener ('load', function() {
   let parent = $('.online_3d_viewer');
-  let url = parent.attr('data-base');
-  parent.children('.toolbar').append(`<ul id='tb'><li><a href='${parent.attr('model')}'><img src='${url}export.svg' id='export'></a><span class='tt'>Download</span></li><li><img src='${url}measure.svg' id='measure'><span class='tt'>Measure</span></li><li><img src='${url}cut.svg' id='cut'><span class='tt'>Section cut</span></li></ul>`);
-  measureButton = new Button('measure');
-  cutButton = new Button('cut');
+  if ($('#measure').length) {
+    measureButton = new Button('measure');
 
-  $('#measure').on('click', function(e) {
-    measureButton.Select(!measureButton.IsSelected());
-    clearButtons(measureButton);
-    if (measureButton.IsSelected()) {
-      faceSelector = new OV.FaceSelector(viewerElements[0].viewer, measureButton, infoPanel);
-    }
-  });
-  $('#cut').on('click', function(e) {
-    cutButton.Select(!cutButton.IsSelected());
-    clearButtons(cutButton);
-    if (cutButton.IsSelected()) {
-      cutPlane = new OV.CutPlane(viewerElements[0].viewer, parent, Slider);
-    }
-  });
+    $('#measure').on('click', function(e) {
+      measureButton.Select(!measureButton.IsSelected());
+      clearButtons(measureButton);
+      if (measureButton.IsSelected()) {
+        faceSelector = new OV.FaceSelector(viewerElements[0].viewer, measureButton, infoPanel);
+      }
+    });
+  }
+  if ($('#cut').length) {
+    cutButton = new Button('cut');
+    $('#cut').on('click', function(e) {
+      cutButton.Select(!cutButton.IsSelected());
+      clearButtons(cutButton);
+      if (cutButton.IsSelected()) {
+        cutPlane = new OV.CutPlane(viewerElements[0].viewer, parent, Slider);
+      }
+    });
+  }
   fieldCache['Model information'] = true;
-  $('#details li.mmenu').on('click', function() { $(this).toggleClass('opened'); });
+  if ($('#details').length)
+    $('#details li.mmenu').on('click', function() { $(this).toggleClass('opened'); });
 });
 let viewerElements = OV.Init3DViewerElements(setDetails);
 

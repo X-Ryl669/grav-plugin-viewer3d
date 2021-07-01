@@ -42,4 +42,59 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
+    show_infopanel:
+      type: toggle
+      label: PLUGIN_3D_VIEWER.SHOW_INFOPANEL
+      help: PLUGIN_3D_VIEWER.SHOW_INFOPANEL_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    show_measure:
+      type: toggle
+      label: PLUGIN_3D_VIEWER.SHOW_MEASURE
+      help: PLUGIN_3D_VIEWER.SHOW_MEASURE_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    show_download:
+      type: toggle
+      label: PLUGIN_3D_VIEWER.SHOW_DOWNLOAD
+      help: PLUGIN_3D_VIEWER.SHOW_DOWNLOAD_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    show_cut:
+      type: toggle
+      label: PLUGIN_3D_VIEWER.SHOW_CUT
+      help: PLUGIN_3D_VIEWER.SHOW_CUT_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    show_cube:
+      type: toggle
+      label: PLUGIN_3D_VIEWER.SHOW_NAVCUBE
+      help: PLUGIN_3D_VIEWER.SHOW_NAVCUBE_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
 

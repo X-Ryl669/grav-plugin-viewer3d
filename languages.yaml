@@ -2,3 +2,13 @@ en:
   PLUGIN_3D_VIEWER:
     SHOW_EDGES: Show edges
     SHOW_EDGES_HELP: Overlay computed edges on your model (useful for CAD data)
+    SHOW_INFOPANEL: Show information panel
+    SHOW_INFOPANEL_HELP: Show a panel on the top left with model information. Required for measure function
+    SHOW_MEASURE: Show measure button
+    SHOW_MEASURE_HELP: Add a button to measure the model
+    SHOW_CUT: Show section cut button
+    SHOW_CUT_HELP: Add a button to create a section cut of your model
+    SHOW_DOWNLOAD: Show download button
+    SHOW_DOWNLOAD_HELP: Add a button to download the model
+    SHOW_NAVCUBE: Show navigation cube
+    SHOW_NAVCUBE_HELP: Add a navigation cube on the top right
