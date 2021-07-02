@@ -1,3 +1,9 @@
+# v0.9.9
+##  07/02/2021
+
+1. [](#new)
+    * All features are now fully optional and selectable from the plugin's main setting page
+
 # v0.9.8
 ##  06/29/2021
 
