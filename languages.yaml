@@ -1,5 +1,7 @@
 en:
   PLUGIN_3D_VIEWER:
+    ZOOM_FACTOR: Zoom behavior
+    ZOOM_FACTOR_HELP: How to react on zoom (-1 limitless, 0 no zoom allowed, 1-100 zoom speed)
     SHOW_EDGES: Show edges
     SHOW_EDGES_HELP: Overlay computed edges on your model (useful for CAD data)
     SHOW_INFOPANEL: Show information panel

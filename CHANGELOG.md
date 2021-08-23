@@ -1,3 +1,10 @@
+# v1.0.0
+## 08/23/2021
+
+1. [](#new)
+    * Support for multiple viewer per page
+    * Add zoom factor feature to limit/speed or disable zooming the model
+
 # v0.9.9
 ##  07/02/2021
 

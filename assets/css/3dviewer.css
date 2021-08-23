@@ -1,29 +1,29 @@
-#tb li img {
+.tb li img {
   width: 32px;
   height: 32px;
   padding: 2px;
 }
-#tb li {
+.tb li {
   display: inline-block;
   padding: 5px;
   margin: 0;
   border-right: 1px solid #888;
   width: 42px;  
 }
-#tb li:last-child {
+.tb li:last-child {
   border: none;
   border-radius: 0 5px 0 0;
 }
-#tb li:first-child {
+.tb li:first-child {
   border-radius: 0 0 0 5px;
 }
-#tb li:hover {
+.tb li:hover {
   background: #F2F2F2;
 }
-#tb li.selected {
+.tb li.selected {
   background: #DDD;
 }
-#tb {
+.tb {
   list-style-type: none;
   position: absolute;
   z-index: 1;
@@ -33,20 +33,20 @@
   border-radius: 0 5px 0 0;
   bottom: 0;
 }
-#details select {
+.details select {
   width: 8em;
 }
-#details span {
+.details span {
   display: inline-block;
   margin: 0 1em;
   color: #3888c4;
 }
-#details span:first-child {
+.details span:first-child {
   font-weight: bold;
   width: 12em;
   color: #75757e;
 }
-#details {
+.details {
   position: absolute;
   z-index: 1;
   border: 1px solid #CCC;
@@ -58,28 +58,28 @@
   list-style-type: none;
   transition: all ease 0.3s;
 }
-#details span.fade {
+.details span.fade {
   opacity: 1 !important;
   color: #3888c4;
   transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53), color 2s ease;
 }
-#details span.transition {
+.details span.transition {
   opacity: 0;
   transition: opacity 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);
   color: #F00;
 }
-#details li {
+.details li {
   font-size: 110%;
   font-weight: bold;
   padding: 0 20px 0 5px;
 }
-#details div {
+.details div {
   height: 1.3rem;
   line-height: 1.3rem;
   font-size: 90%;
   font-weight: normal;
 }
-#details li.mmenu {
+.details li.mmenu {
   display: block;
   position: absolute;
   background: #BBB;
@@ -94,7 +94,7 @@
   transition: all ease 0.3s;
   padding: 0 5px;
 }
-#details li.mmenu.opened 
+.details li.mmenu.opened 
 {
   color: #888;
   right: -10px;
@@ -104,21 +104,21 @@
   box-shadow: -1px 1px 2px #888;
 
 }
-#details li.mmenu::before {
+.details li.mmenu::before {
   content: '☰';
   width: 1em;
   display: block;
 }
-#details li.mmenu.opened::before {
+.details li.mmenu.opened::before {
   content: '◀';
 } 
-#details li {
+.details li {
   display: none;
 }
-#details li.mmenu.opened ~ li {
+.details li.mmenu.opened ~ li {
   display: block;
 }
-#tb .tt {
+.tb .tt {
   visibility: hidden;
   background-color: #000;
   color: #fff;
@@ -131,9 +131,9 @@
   left: -50%;
   width: max-content;
 }
-#tb li { position: relative; }
-#tb li:hover .tt { visibility: visible; }
-#depthSlider {
+.tb li { position: relative; }
+.tb li:hover .tt { visibility: visible; }
+.depthSlider {
   position: absolute;
   bottom: 48px;
   right: -43.75%;
@@ -149,10 +149,10 @@
   margin-right: 10px;
   box-shadow: -4px 4px 8px #CCC inset;
 }
-#depthSlider:hover {
+.depthSlider:hover {
   opacity: 1;
 }
-#depthSlider::-webkit-slider-thumb {
+.depthSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
@@ -163,7 +163,7 @@
   border-radius: 50%;
   box-shadow: -3px 1px 2px #CCC;
 }
-#depthSlider::-moz-range-thumb {
+.depthSlider::-moz-range-thumb {
   width: 25px;
   height: 25px;
   background: #B1C5D4;
@@ -175,4 +175,4 @@
 
 
 .online_3d_viewer { position: relative; width: 100%; height: 600px; }
-#navcube { position: absolute; top: 0; right: 0; }
+.navcube { position: absolute; top: 0; right: 0; }
