@@ -65,7 +65,7 @@ Thumb: media/thumb.png
 Mime type: model/stl 
 ```
 
-
+It's `model/obj` **and** `model/mtl` for OBJ file.
 
 ## Usage
 
@@ -76,6 +76,10 @@ Simply add:
 ````
 
 To your page and a 3D plugin will appear, showing **YourFile.stl** (must be in the same folder as your page).
+If you need to show an OBJ file with its MTL library and some texture, you'll need to list the files separated by comma, like this:
+```
+[3dv]Binary_0.jpeg,model.mtl,model.obj[/3dv]
+```
 
 ## Credits
 

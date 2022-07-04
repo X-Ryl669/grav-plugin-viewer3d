@@ -1,3 +1,9 @@
+# v1.0.1
+## 07/04/2022
+
+1. [](#new)
+    * Adding support for viewing .obj files too with textures
+
 # v1.0.0
 ## 08/23/2021
 
