@@ -26,7 +26,16 @@ class V3DShortcode extends Shortcode
             $showDownload  = $config['show_download'] ?? true;
 
             if (!isset($this->modelCount)) $this->modelCount = 0;
-            $modelPath = $slug.'/'.$sc->getContent();
+            $files = explode(",", $sc->getContent());
+            $modelPath = "";
+	    // There are probably a way to get the client url of the media, but I haven't found how...
+            $mediaUri = str_replace("user:/", "/user/", $this->grav['page']->getMediaUri());
+            foreach ($files as $file) {
+                $ext = strrchr($file, ".");
+                if ($ext == ".jpeg" || $ext == ".jpg" || $ext == ".png") $modelPath = (empty($modelPath) ? "":($modelPath.",")).$mediaUri.'/'.$file;
+                else $modelPath = (empty($modelPath) ? "":($modelPath.",")).$slug.'/'.$file;
+	    }
+
             $out = "<div id='model".$this->modelCount."' class='online_3d_viewer' data-base='".$baseUrl."/' model='".$modelPath."' camera='-1.5,-3.0,2.0,0,0,0,0,0,1'".($showEdges ? " edge='#000000'" : "")." color='#A0B0A0'".($showCube ? " navcube='1'": "")." zoomFactor='".$zoomFactor."'>";
 	    if ($showMeasure || $showDownload || $showCut)
             {
