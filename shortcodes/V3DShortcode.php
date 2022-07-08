@@ -3,6 +3,7 @@ namespace Grav\Plugin\Shortcodes;
 
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 use Grav\Common\Utils as Utils;
+use Grav\Common\Uri as Uri;
 
 class V3DShortcode extends Shortcode
 {
@@ -28,11 +29,13 @@ class V3DShortcode extends Shortcode
             if (!isset($this->modelCount)) $this->modelCount = 0;
             $files = explode(",", $sc->getContent());
             $modelPath = "";
-	    // There are probably a way to get the client url of the media, but I haven't found how...
-            $mediaUri = str_replace("user:/", "/user/", $this->grav['page']->getMediaUri());
+
+            $media = $this->grav['page']->getMedia();
             foreach ($files as $file) {
-                $ext = strrchr($file, ".");
-                if ($ext == ".jpeg" || $ext == ".jpg" || $ext == ".png") $modelPath = (empty($modelPath) ? "":($modelPath.",")).$mediaUri.'/'.$file;
+                // Check if we need to rework the image's URL
+                if (isset($media->images()[$file])) {
+                   $modelPath = (empty($modelPath) ? "" : ($modelPath.",")).$media->images()[$file]->url();
+                }
                 else $modelPath = (empty($modelPath) ? "":($modelPath.",")).$slug.'/'.$file;
 	    }
 
